@@ -1,0 +1,68 @@
+CREATE SCHEMA public;
+
+CREATE TABLE public.climatethemes ( 
+	themename            VARCHAR(100)   ,
+	CONSTRAINT unq_climatethemes_themename UNIQUE ( themename ) 
+ );
+
+CREATE TABLE public.designinterventions ( 
+	name                 CHAR(30)   NOT NULL,
+	adaptation           CHAR(60)   ,
+	designstreet         BOOLEAN   ,
+	designbuilding       BOOLEAN   ,
+	designsquare         BOOLEAN   ,
+	source               CHAR(30)   ,
+	subsurfprop          CHAR(100)   ,
+	localstandard        VARCHAR(60)   ,
+	nationalstandard     VARCHAR(60)   ,
+	CONSTRAINT pk_tbl PRIMARY KEY ( name )
+ );
+
+CREATE TABLE public.leidraad ( 
+	namestandard         VARCHAR(100)   ,
+	CONSTRAINT unq_leidraad_namestandard UNIQUE ( namestandard ) 
+ );
+
+CREATE TABLE public.maatlat ( 
+	guidelinename        VARCHAR(100)   
+ );
+
+CREATE TABLE public.subsurface ( 
+	nameprop             VARCHAR(100)   ,
+	CONSTRAINT unq_subsurface_nameprop UNIQUE ( nameprop ) 
+ );
+
+INSERT INTO public.climatethemes( "THEMENAME" ) VALUES ( 'biodiversity');
+INSERT INTO public.climatethemes( "THEMENAME" ) VALUES ( 'drought');
+INSERT INTO public.climatethemes( "THEMENAME" ) VALUES ( 'flood');
+INSERT INTO public.climatethemes( "THEMENAME" ) VALUES ( 'heat');
+INSERT INTO public.climatethemes( "THEMENAME" ) VALUES ( 'waterlogging');
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'greenFacade                   ', 'biodiversity, heat                                          ', 0, 1, 0, 'RVO                           ', 'geomechanics, congestion                                                                            ', 'B1, B2, B3, H3', 'biodiversity, heat');
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'facadeGarden                  ', 'biodiversity, heat, waterlogging                            ', 1, 1, 0, 'RVO                           ', 'congestion                                                                                          ', 'B1, B2, B3, H3, N1', '');
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'greenGarden                   ', 'biodiversity, heat, waterlogging, drought                   ', 0, 1, 1, 'RVO                           ', 'congestion                                                                                          ', 'B1, B2, B3, H2, H3, N1, D1', null);
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'greenRoof                     ', 'biodiversity, waterlogging                                  ', 0, 1, 0, 'RVO                           ', null, 'B1, B2, B3, N1', '');
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'greenFence                    ', 'biodiversity, heat                                          ', 1, 1, 1, 'RVO                           ', 'geomechanics, congestion                                                                            ', 'B1, B2, H3', null);
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'treePlanting                  ', 'biodiversity, heat                                          ', 1, 0, 1, 'RVO                           ', 'geomechanics, congestion, soil type                                                                 ', 'B1, B2, B3, H1, H2', null);
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'birdBoxes                     ', 'biodiversity                                                ', 0, 1, 1, 'RVO                           ', null, 'B3', null);
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'rainBarrel                    ', 'waterlogging, drought                                       ', 0, 1, 0, 'RVO                           ', 'soil type, congestion                                                                               ', 'N1, N2, N3, D1, D2', null);
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'loweredVerge                  ', 'waterlogging, flood                                         ', 1, 0, 0, 'RVO                           ', null, 'N1, V1 ', null);
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'lightColorMaterial            ', 'heat                                                        ', 0, 1, 0, 'RVO                           ', null, 'H3, H4', null);
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'blinds                        ', 'Heat                                                        ', 0, 1, 0, 'RVO                           ', null, 'H4', null);
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'permeablePavement             ', 'waterlogging, drought                                       ', 1, 0, 1, 'RVO                           ', 'groundwater                                                                                         ', 'N1, D1', null);
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'coolPlaces                    ', 'biodiversity, heat                                          ', 0, 0, 1, 'RVO                           ', 'congestion                                                                                          ', 'H1, H2', null);
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'shadowRoutes                  ', 'biodiversity, heat                                          ', 1, 0, 1, 'RVO                           ', 'congestion                                                                                          ', 'H1, H2', null);
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'naturalPlayground             ', 'biodiversity, waterlogging, drought                         ', 0, 0, 1, 'RVO                           ', 'congestion, soil type                                                                               ', 'B1, B2, B3, N1, D1', null);
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'wadis                         ', 'biodiversity, waterlogging, drought                         ', 1, 0, 0, 'RVO                           ', 'soil type, groundwaterlevel                                                                         ', 'B1, B2, B3, N1, N2, N3, D1, D2', null);
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'surfaceWater                  ', 'biodiversity, waterlogging                                  ', 0, 0, 1, 'RVO                           ', 'congestion, groundwater                                                                             ', 'B3, N1, N2, N3', null);
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'infiltrationCrates            ', 'waterlogging, drought                                       ', 1, 0, 1, 'RVO                           ', 'groundwater, soil type, congestion                                                                  ', 'N1, N2, N3, D1, D2', null);
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'waterStorageBuilding          ', 'waterlogging                                                ', 0, 1, 0, 'RVO                           ', 'congestion                                                                                          ', 'N1, N2', null);
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'waterSquare                   ', 'waterlogging, flood                                         ', 0, 0, 1, 'RVO                           ', ' congestion, groundwater                                                                            ', 'N1, N2, V1', null);
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'ruralWaterways                ', 'waterlogging,flood                                          ', 1, 0, 0, 'RVO                           ', 'groundwater                                                                                         ', '', null);
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'waterRoof                     ', 'waterlogging                                                ', 0, 1, 0, 'RVO                           ', null, 'N1, N2', null);
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'groundLevelElevation          ', 'flood                                                       ', 1, 0, 1, 'RVO                           ', 'geomechanics, soil type                                                                             ', 'V1, V2, V3, V4', null);
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'soilImprovement               ', 'biodiversity, waterlogging, drought                         ', 1, 1, 1, 'RVO                           ', 'soil type                                                                                           ', 'B3, N1, N2, N3, D1, D2', '');
+INSERT INTO public.designinterventions( "NAME", "ADAPTATION", "DESIGNSTREET", "DESIGNBUILDING", "DESIGNSQUARE", "SOURCE", "SUBSURFPROP", "LOCALSTANDARD", "NATIONALSTANDARD" ) VALUES ( 'waterStorageSurface           ', 'waterlogging                                                ', 1, 0, 1, 'RVO                           ', 'congestion                                                                                          ', 'N1, N2', null);
+INSERT INTO public.subsurface( "NAMEPROP" ) VALUES ( 'congestion');
+INSERT INTO public.subsurface( "NAMEPROP" ) VALUES ( 'geomechanics');
+INSERT INTO public.subsurface( "NAMEPROP" ) VALUES ( 'groundwater');
+INSERT INTO public.subsurface( "NAMEPROP" ) VALUES ( 'soil type');
