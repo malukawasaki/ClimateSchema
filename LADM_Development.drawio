@@ -163,10 +163,10 @@
             <mxPoint x="560" y="825" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="s6FYRaQxBE9pazJrmBZp-52" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;dashed=1;strokeColor=#FF0000;strokeWidth=2;" vertex="1" parent="1">
+        <mxCell id="s6FYRaQxBE9pazJrmBZp-52" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;dashed=1;strokeColor=#0000FF;strokeWidth=2;" vertex="1" parent="1">
           <mxGeometry x="610" y="480" width="190" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="s6FYRaQxBE9pazJrmBZp-53" value="&lt;b&gt;&lt;font style=&quot;color: rgb(255, 0, 0);&quot;&gt;this paper&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="s6FYRaQxBE9pazJrmBZp-53" value="&lt;b&gt;&lt;font style=&quot;color: rgb(0, 0, 255);&quot;&gt;this paper&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="710" y="620" width="90" height="30" as="geometry" />
         </mxCell>
       </root>
